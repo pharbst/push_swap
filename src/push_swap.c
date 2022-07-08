@@ -6,18 +6,19 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 02:29:27 by pharbst           #+#    #+#             */
-/*   Updated: 2022/06/29 14:37:58 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/07/08 02:12:01 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <stdarg.h>
-#include "./libft.library/libft.h"
+#include "../libft/libft.h"
 
-char ***ft_input_join(int argnum, char ***args)
+char **ft_input_join(int argnum, char **args)
 {
 	int		y;
-	char	*ret
+	char	*ret;
 
+	ret = NULL;
 	y = 0;
 	while(--argnum > 0)
 		ret = ft_strjoinfree(ret, args[0][y++])
