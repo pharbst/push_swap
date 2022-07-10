@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_stack_delone.c                                   :+:      :+:    :+:   */
+/*   t_stack_removenode.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 15:43:28 by pharbst           #+#    #+#             */
-/*   Updated: 2022/07/10 11:07:00 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/07/10 19:57:46 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "t_stack.h"
 
 t_stack	*ft_stackremove_node(t_stack **stack, size_t index)
 {
