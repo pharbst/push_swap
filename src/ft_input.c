@@ -6,15 +6,50 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 14:16:22 by pharbst           #+#    #+#             */
-/*   Updated: 2022/07/10 12:16:28 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/07/10 16:02:05 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+t_stack	*ft_addnode(t_stack *stack, char *src)
+{
+	size_t	minus;
+	int		nbr;
+	t_stack	*node;
+
+	minus = 0;
+	while(*src == '-' || *src == '+')
+	{
+		if (*src == '-')
+			minus++;
+		src++;
+	}
+	nbr = ft_atoi(src);
+	node = ft_stack_new(nbr);
+	stack = ft_stackadd_front(&stack, node);
+	if (!stack)
+		stack = node;
+	return (stack);
+}
+
 t_stack	*ft_inputsplit(char *src)
 {
-	
+	size_t	x;
+	t_stack	*stacka;
+
+	stacka = NULL;
+	x = 0;
+	while (src[x])
+	{
+		if (!ft_strchr("\t\v\r \f\n", src[x]))
+		{
+			stacka = ft_addnode(stacka, src + x);
+			while (ft_strchr("-+0123456789", src[x]))
+				x++;
+		}
+		x++;
+	}
 }
 
 int ft_inputcheck(char *format)
@@ -40,7 +75,11 @@ t_stack	*ft_input(int argnum, char **args)
 	while(--argnum > 0)
 	{
 		ret = ft_strjoinfree(ret, args[y++]);
+		if (!ret)
+			return (NULL);
 		ret = ft_strjoinfree(ret, " ");
+		if (!ret)
+			return (NULL);
 	}
 	if (ft_inputcheck(ret) == 1)
 		return (NULL);
