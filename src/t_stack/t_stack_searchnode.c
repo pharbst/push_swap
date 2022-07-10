@@ -6,11 +6,11 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 12:33:39 by pharbst           #+#    #+#             */
-/*   Updated: 2022/07/10 14:09:02 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/07/10 19:57:55 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "t_stack.h"
 
 t_stack	*ft_stacksearch(t_stack *stack, size_t index)
 {

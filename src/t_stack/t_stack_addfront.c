@@ -6,11 +6,11 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 14:35:05 by pharbst           #+#    #+#             */
-/*   Updated: 2022/07/09 15:34:09 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/07/10 19:57:08 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "t_stack.h"
 
 void	ft_stackadd_front(t_stack **stack, t_stack *newnode)
 {
