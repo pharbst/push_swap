@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 10:56:18 by pharbst           #+#    #+#             */
-/*   Updated: 2022/07/10 11:06:51 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/07/10 12:24:59 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,5 @@
 void	ft_stackdel_node(t_stack *node)
 {
 	if (node)
-	{
-		free(node->content);
 		free(node);
-	}
 }
