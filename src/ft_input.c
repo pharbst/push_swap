@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 14:16:22 by pharbst           #+#    #+#             */
-/*   Updated: 2022/07/10 16:02:05 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/07/10 20:02:31 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ t_stack	*ft_inputsplit(char *src)
 		}
 		x++;
 	}
+	return (free(src), stacka);
 }
 
 int ft_inputcheck(char *format)
@@ -82,7 +83,7 @@ t_stack	*ft_input(int argnum, char **args)
 			return (NULL);
 	}
 	if (ft_inputcheck(ret) == 1)
-		return (NULL);
+		return (free(ret), NULL);
 	else
 		return (ft_inputsplit(ret));
 }
