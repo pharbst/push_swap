@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   t_stack_addfront.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 02:12:22 by pharbst           #+#    #+#             */
-/*   Updated: 2022/07/10 12:15:26 by pharbst          ###   ########.fr       */
+/*   Created: 2022/07/09 14:35:05 by pharbst           #+#    #+#             */
+/*   Updated: 2022/07/09 15:34:09 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP
-# define PUSH_SWAP
+#include "../../includes/push_swap.h"
 
-# include <stdio.h>
-# include <stdarg.h>
-# include "./libft.h"
-
-typedef struct s_stack
+void	ft_stackadd_front(t_stack **stack, t_stack *newnode)
 {
-	int				content;
-	size_t			index;
-	struct s_stack	*next;
-}	t_stack;
+	t_stack	*last;
 
-t_stack		*ft_input(int argnum, char **args);
-
-#endif
+	if (stack)
+	{
+		newnode->next = *stack;
+		last = ft_stacklast(*stack);
+		last->next = newnode;
+		*stack = newnode;
+	}
+}

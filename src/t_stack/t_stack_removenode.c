@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   t_stack_delone.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 02:12:22 by pharbst           #+#    #+#             */
-/*   Updated: 2022/07/10 12:15:26 by pharbst          ###   ########.fr       */
+/*   Created: 2022/07/09 15:43:28 by pharbst           #+#    #+#             */
+/*   Updated: 2022/07/10 11:07:00 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP
-# define PUSH_SWAP
+#include "../../includes/push_swap.h"
 
-# include <stdio.h>
-# include <stdarg.h>
-# include "./libft.h"
-
-typedef struct s_stack
+t_stack	*ft_stackremove_node(t_stack **stack, size_t index)
 {
-	int				content;
-	size_t			index;
-	struct s_stack	*next;
-}	t_stack;
+	t_stack	*stash;
+	t_stack	*cache;
 
-t_stack		*ft_input(int argnum, char **args);
-
-#endif
+	if (stack)
+	{
+		index -= 1;
+		stash = *stack;
+		while (--index > 0)
+			stash = stash->next;
+		if (index == -1)
+			stash = ft_stacklast(*stack);
+		cache = stash->next;
+		stash->next = stash->next->next;
+		return (cache);
+	}
+}
