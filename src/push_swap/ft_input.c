@@ -6,11 +6,11 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 14:16:22 by pharbst           #+#    #+#             */
-/*   Updated: 2022/07/10 20:02:31 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/07/11 10:02:01 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 t_stack	*ft_addnode(t_stack *stack, char *src)
 {
@@ -27,7 +27,7 @@ t_stack	*ft_addnode(t_stack *stack, char *src)
 	}
 	nbr = ft_atoi(src);
 	node = ft_stack_new(nbr);
-	stack = ft_stackadd_front(&stack, node);
+	ft_stackadd_front(&stack, node);
 	if (!stack)
 		stack = node;
 	return (stack);
