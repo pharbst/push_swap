@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 02:12:22 by pharbst           #+#    #+#             */
-/*   Updated: 2022/07/10 20:03:39 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/07/10 20:52:57 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include <stdio.h>
 # include <stdarg.h>
-# include "./libft.h"
-# include "../src/t_stack/t_stack.h"
+# include "libft.h"
+# include "t_stack.h"
 
 t_stack		*ft_input(int argnum, char **args);
 
