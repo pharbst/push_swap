@@ -6,17 +6,16 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 14:16:22 by pharbst           #+#    #+#             */
-/*   Updated: 2022/07/12 17:12:04 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/07/12 19:33:11 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-t_stack	*ft_addnode(t_stack *stack, char *src)
+t_stack	*ft_getnode(char *src)
 {
 	size_t	minus;
-	int		nbr;
-	t_stack	*node;
+	long	nbr;
 
 	minus = 0;
 	while(*src == '-' || *src == '+')
@@ -25,18 +24,21 @@ t_stack	*ft_addnode(t_stack *stack, char *src)
 			minus++;
 		src++;
 	}
-	nbr = ft_atoi(src);
-	node = ft_stack_new(nbr);
-	stack = ft_stackadd_front(stack, node);
-	if (!stack)
-		stack = node;
-	return (stack);
+	nbr = ft_atoui(src);
+	if (nbr == -1)
+		return (NULL);
+	if (minus % 2 == 1 && nbr <= 2147483648)
+		nbr *= -1;
+	else if (nbr > 2147483647)
+		return (NULL);
+	return (ft_stack_new(nbr));
 }
 
 t_stack	*ft_inputsplit(char *src)
 {
 	size_t	x;
 	t_stack	*stacka;
+	t_stack	*node;
 
 	stacka = NULL;
 	x = 0;
@@ -44,7 +46,13 @@ t_stack	*ft_inputsplit(char *src)
 	{
 		if (!ft_strchr("\t\v\r \f\n", src[x]))
 		{
-			stacka = ft_addnode(stacka, src + x);
+			node = ft_getnode(src + x);
+			if (!node)
+				return (free(src), ft_stackdelete(stacka), NULL);
+			if (!stacka)
+				stacka = node;
+			else
+				ft_stackadd_end(stacka, node);
 			while (ft_strchr("-+0123456789", src[x]))
 				x++;
 		}
