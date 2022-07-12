@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 14:16:22 by pharbst           #+#    #+#             */
-/*   Updated: 2022/07/11 10:02:01 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/07/12 17:03:37 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_stack	*ft_addnode(t_stack *stack, char *src)
 	t_stack	*node;
 
 	minus = 0;
+	printf("test addnode start\n");
 	while(*src == '-' || *src == '+')
 	{
 		if (*src == '-')
@@ -27,7 +28,9 @@ t_stack	*ft_addnode(t_stack *stack, char *src)
 	}
 	nbr = ft_atoi(src);
 	node = ft_stack_new(nbr);
-	ft_stackadd_front(&stack, node);
+	printf("%p, x%ix\n", node, node->content);
+	stack = ft_stackadd_front(stack, node);
+	printf("test addnode end\n");
 	if (!stack)
 		stack = node;
 	return (stack);
@@ -42,6 +45,8 @@ t_stack	*ft_inputsplit(char *src)
 	x = 0;
 	while (src[x])
 	{
+		printf("test while2\n");
+		printf("%c\n", src[x]);
 		if (!ft_strchr("\t\v\r \f\n", src[x]))
 		{
 			stacka = ft_addnode(stacka, src + x);
@@ -55,14 +60,21 @@ t_stack	*ft_inputsplit(char *src)
 
 int ft_inputcheck(char *format)
 {
+	printf("test2\n");
+	printf("%s\n", format);
 	if (!format)
 		return (1);
+	printf("test3\n");
+	printf("%s\n", format);
 	while (*format)
 	{
+		printf("test while\n");
+		printf("%c\n", *format);
 		if (!ft_strchr("\t\n\r\f\v -+0123456789", *format))
 			return (1);
 		format++;
 	}
+	printf("test4\n");
 	return (0);
 }
 
@@ -72,7 +84,7 @@ t_stack	*ft_input(int argnum, char **args)
 	char	*ret;
 
 	ret = NULL;
-	y = 0;
+	y = 1;
 	while(--argnum > 0)
 	{
 		ret = ft_strjoinfree(ret, args[y++]);
@@ -82,6 +94,8 @@ t_stack	*ft_input(int argnum, char **args)
 		if (!ret)
 			return (NULL);
 	}
+	printf("test1\n");
+	printf("%s\n", ret);
 	if (ft_inputcheck(ret) == 1)
 		return (free(ret), NULL);
 	else
