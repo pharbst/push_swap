@@ -6,11 +6,11 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/08 02:06:04 by pharbst           #+#    #+#              #
-#    Updated: 2022/07/11 10:04:58 by pharbst          ###   ########.fr        #
+#    Updated: 2022/07/12 16:38:40 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= push_swap
+NAME	= push_swap.a
 CFLAGS	= -Wall -Wextra -Werror -g
 CC		= cc
 
@@ -18,14 +18,7 @@ LIBFT	= ./libft
 SRCDIR	= ./src
 OBJDIR	= ./obj
 
-FILES	=	push_swap.c\
-			ft_input.c\
-			t_stack_addfront.c\
-			t_stack_delnode.c\
-			t_stack_last.c\
-			t_stack_new.c\
-			t_stack_removenode.c\
-			t_stack_searchnode.c
+FILES	=	ft_input.c\
 			
 
 OBJ		= 	$(addprefix $(OBJDIR)/, $(FILES:.c=.o))
