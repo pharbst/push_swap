@@ -5,50 +5,73 @@
 #                                                     +:+ +:+         +:+      #
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/07/08 02:06:04 by pharbst           #+#    #+#              #
-#    Updated: 2022/07/12 16:38:40 by pharbst          ###   ########.fr        #
+#    Created: 2022/05/06 09:33:42 by peter             #+#    #+#              #
+#    Updated: 2022/08/18 15:16:38 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= push_swap.a
-CFLAGS	= -Wall -Wextra -Werror -g
-CC		= cc
+NAME	=	pushswap.a
+CC		=	cc
+CFLAGS	=	-Wall -Wextra -Werror -g
 
-LIBFT	= ./libft
-SRCDIR	= ./src
-OBJDIR	= ./obj
+SRCDIR	=	./src
 
-FILES	=	ft_input.c\
-			
+OBJDIR	=	./obj
 
-OBJ		= 	$(addprefix $(OBJDIR)/, $(FILES:.c=.o))
+FILES	=	ft_checknode.c\
+			ft_getindex.c\
+			ft_getnode.c\
+			ft_input.c\
+			ft_inputcheck.c\
+			ft_inputsplit.c\
+			ft_inputtostr.c\
+			ft_pusha.c\
+			ft_pushb.c\
+			ft_revrotate.c\
+			ft_revrota.c\
+			ft_revrotb.c\
+			ft_revrotboth.c\
+			ft_rotate.c\
+			ft_rota.c\
+			ft_rotb.c\
+			ft_rotboth.c\
+			ft_swap.c\
+			ft_swapa.c\
+			ft_swapb.c\
+			ft_swapboth.c\
+			ft_checksorted.c\
+			ft_initvars.c\
+			ft_locate_chunk.c\
+			ft_chunkmembers.c\
+			ft_chunk_midpoint.c\
+			ft_subchunk_a.c
 
-all:		$(NAME)
+OBJS	=	$(addprefix $(OBJDIR)/, $(FILES:.c=.o))
 
-$(NAME):	$(OBJ)
-	@echo make push_swap
-	@make -C $(LIBFT)
+
+
+all:	$(NAME)
+
+$(NAME):	$(OBJS)
+	@echo make pushswap
 	@cp libft/libft.a $(NAME)
-	@ar rcs $(NAME) $(OBJ)
+	@ar rcs $(NAME) $(OBJS)
 
-$(OBJDIR)/%.o:	$(SRCDIR)/*/%.c ./includes/push_swap.h
+$(OBJDIR)/%.o:	$(SRCDIR)/*/%.c ./pushswap.h
 	@mkdir -p $(OBJDIR)
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
-	@echo make clean ft_printf
-	@rm -rf $(OBJ)
+	@echo make clean pushswap
+	@rm -rf $(OBJS)
 	rm -rf $(OBJDIR)
-	@make clean -C$(LIBFT)
 
 fclean:
-	@echo make fclean ft_printf
-	@rm -rf $(OBJ)
+	@echo make flcean pushswap
+	@rm -rf $(OBJS)
 	rm -rf $(OBJDIR)
-	rm -f $(NAME)
-	rm -f a.out
-	@make fclean -C $(LIBFT)
+	rm -rf $(NAME)
 
-re:			fclean all
+re:	fclean all
 
-.PHONY: 	clean fclean all re
+.PHONY:	all clean fclean re

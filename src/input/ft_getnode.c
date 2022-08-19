@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_input.c                                         :+:      :+:    :+:   */
+/*   ft_getnode.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/09 14:23:42 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/10 11:25:49 by pharbst          ###   ########.fr       */
+/*   Created: 2022/08/09 14:29:37 by pharbst           #+#    #+#             */
+/*   Updated: 2022/08/09 14:53:06 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../pushswap.h"
 
-t_stack	*ft_input(int argc, char **argv)
+t_stack	*ft_getnode(char *src)
 {
-	char	*inputstr;
-	t_stack	*stack;
+	size_t	minus;
+	long	nbr;
+	t_stack	*node;
 
-	inputstr = ft_inputtostr(argc, argv);
-	if (!inputstr)
+	minus = 0;
+	while (*src == '-' || *src == '+')
+	{
+		if (*src == '-')
+			minus++;
+		src++;
+	}
+	nbr = ft_atoui(src);
+	if (nbr == -1)
 		return (NULL);
-	if (ft_inputcheck(inputstr) == 1)
-		return (free(inputstr), NULL);
-	stack = ft_inputsplit(inputstr);
-	if (!stack)
-		return (free(inputstr), NULL);
-	if (ft_checksorted(stack) == 0)
-		return (free(inputstr), ft_stackdelete(stack), NULL);
-	ft_getindex(&stack);
-	return (free(inputstr), stack);
+	if (minus % 2 == 1 && nbr <= 2147483648)
+		nbr *= -1;
+	else if (nbr > 2147483647)
+		return (NULL);
+	node = ft_stack_new((int)nbr);
+	return (node);
 }

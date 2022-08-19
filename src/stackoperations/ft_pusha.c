@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_input.c                                         :+:      :+:    :+:   */
+/*   ft_pusha.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/09 14:23:42 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/10 11:25:49 by pharbst          ###   ########.fr       */
+/*   Created: 2022/08/09 14:55:41 by pharbst           #+#    #+#             */
+/*   Updated: 2022/08/10 16:07:28 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../pushswap.h"
 
-t_stack	*ft_input(int argc, char **argv)
+int	ft_pusha(t_stack **stacka, t_stack **stackb)
 {
-	char	*inputstr;
-	t_stack	*stack;
+	t_stack	*node;
 
-	inputstr = ft_inputtostr(argc, argv);
-	if (!inputstr)
-		return (NULL);
-	if (ft_inputcheck(inputstr) == 1)
-		return (free(inputstr), NULL);
-	stack = ft_inputsplit(inputstr);
-	if (!stack)
-		return (free(inputstr), NULL);
-	if (ft_checksorted(stack) == 0)
-		return (free(inputstr), ft_stackdelete(stack), NULL);
-	ft_getindex(&stack);
-	return (free(inputstr), stack);
+	if (!*stackb)
+		return (1);
+	node = ft_stackremove_node(stackb, 0);
+	*stacka = ft_stackadd_front(*stacka, node);
+	printf("pa\n");
+	return (0);
 }

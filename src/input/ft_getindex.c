@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_input.c                                         :+:      :+:    :+:   */
+/*   ft_getindex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/09 14:23:42 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/10 11:25:49 by pharbst          ###   ########.fr       */
+/*   Created: 2022/08/09 14:29:42 by pharbst           #+#    #+#             */
+/*   Updated: 2022/08/10 11:23:50 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../pushswap.h"
 
-t_stack	*ft_input(int argc, char **argv)
+void	ft_getindex(t_stack **stack)
 {
-	char	*inputstr;
-	t_stack	*stack;
+	t_stack		*next;
+	t_stack		*node;
+	size_t		index;
+	size_t		len;
 
-	inputstr = ft_inputtostr(argc, argv);
-	if (!inputstr)
-		return (NULL);
-	if (ft_inputcheck(inputstr) == 1)
-		return (free(inputstr), NULL);
-	stack = ft_inputsplit(inputstr);
-	if (!stack)
-		return (free(inputstr), NULL);
-	if (ft_checksorted(stack) == 0)
-		return (free(inputstr), ft_stackdelete(stack), NULL);
-	ft_getindex(&stack);
-	return (free(inputstr), stack);
+	index = 0;
+	len = ft_stacklen(*stack);
+	while (len--)
+	{
+		node = *stack;
+		while (node->index != 0)
+			node = node->next;
+		next = node->next;
+		while (next != *stack)
+		{
+			if (node->content > next->content && next->index == 0)
+				node = next;
+			next = next->next;
+		}
+		node->index = ++index;
+	}
 }

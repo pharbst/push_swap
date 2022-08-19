@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 02:12:22 by pharbst           #+#    #+#             */
-/*   Updated: 2022/07/12 16:34:43 by pharbst          ###   ########.fr       */
+/*   Created: 2022/08/09 15:50:56 by pharbst           #+#    #+#             */
+/*   Updated: 2022/08/09 15:53:13 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP
-# define PUSH_SWAP
+#include "../../pushswap.h"
 
-# include <stdio.h>
-# include <stdarg.h>
-# include "./libft.h"
+int	ft_rotate(t_stack **stack)
+{
+	t_stack	*node;
 
-t_stack		*ft_input(int argnum, char **args);
-
-#endif
+	if ((*stack)->next == *stack)
+		return (1);
+	node = *stack;
+	node = node->next;
+	*stack = node;
+	return (0);
+}
