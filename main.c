@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 11:14:54 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/19 19:28:07 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/08/21 16:08:02 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	ft_printall(t_stack *stacka, t_stack *stackb, t_var *varsa, t_var *varsb)
 
 int main(int argc, char **argv)
 {
-	int		counter = 4;			//testing purpose
+	int		counter = 3;			//testing purpose
 	
 	t_stack	*stacka;
 	t_stack	*stackb;
@@ -110,7 +110,7 @@ int main(int argc, char **argv)
 	stackb = NULL;
 	stacka = ft_input(argc, argv);
 	
-	while (ft_checksorted(stacka) == 1 || ft_stacklen(stackb) != 0 && counter--)
+	while (ft_checksorted(stacka) == 1 || ft_stacklen(stackb) != 0 || counter-- != 0)
 	{
 		ft_locate_chunk(stacka, &varsa);
 		ft_locate_chunk(stackb, &varsb);
@@ -119,9 +119,9 @@ int main(int argc, char **argv)
 		
 		if (ft_checksorted(stacka) == 1)
 		{
-			if (varsa->chunkmembers <= 3)
+			if (varsa->chunkmembers == 3 && varsa->chunkid == 0)
 			{
-				//ft_sort_three(&stacka);
+				// ft_sort_three(&stacka);
 				if (stacka->index > stacka->next->index && stacka->index > stacka->next->next->index)
 					ft_rota(&stacka);
 				if (stacka->index < stacka->next->index && stacka->next->index > stacka->next->next->index)
@@ -129,7 +129,7 @@ int main(int argc, char **argv)
 				if (stacka->index > stacka->next->index)
 					ft_swapa(&stacka);
 			}
-			else
+			else if (varsa->chunkmembers >= 3)
 			{
 				varsa->chunks++;
 				varsb->chunks = varsa->chunks;
@@ -145,6 +145,8 @@ int main(int argc, char **argv)
 						ft_rota(&stacka);
 				}
 			}
+			else
+				ft_swapa(&stacka);
 		}
 		else
 		{
