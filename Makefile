@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 09:33:42 by peter             #+#    #+#              #
-#    Updated: 2022/08/18 15:16:38 by pharbst          ###   ########.fr        #
+#    Updated: 2022/08/22 11:34:07 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,11 @@ FILES	=	ft_checknode.c\
 			ft_locate_chunk.c\
 			ft_chunkmembers.c\
 			ft_chunk_midpoint.c\
-			ft_subchunk_a.c
+			ft_subchunk.c\
+			ft_push_swap.c\
+			ft_pushchunk.c\
+			ft_sorta.c\
+			test.c
 
 OBJS	=	$(addprefix $(OBJDIR)/, $(FILES:.c=.o))
 

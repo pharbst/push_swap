@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/10 11:14:54 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/21 17:31:31 by pharbst          ###   ########.fr       */
+/*   Created: 2022/08/21 17:23:15 by pharbst           #+#    #+#             */
+/*   Updated: 2022/08/21 17:23:30 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "../../pushswap.h"
 
 void ft_printstack(t_stack *stack)
 {
@@ -68,47 +68,4 @@ void	ft_printall(t_stack *stacka, t_stack *stackb, t_var *varsa, t_var *varsb)
 	ft_printvars(varsa);
 	ft_printvars(varsb);
 	printf("\33[0;31m_________________________________________________________________________________________________________________________________________\033[0;37m\n\n\n");
-}
-
-
-// void	ft_subchunk(t_stack **stacka, t_stack **stackb, t_var *varsa)
-// {
-// 	while (ft_chunkmembers(stacka) > 3)
-// 	{
-// 		if (ft_checksorted(stacka) == 1)
-// 		{
-// 			ft_locate_chunk(stacka, &varsa);
-// 			varsa->chunks++;
-// 			while (varsa->pushtotal != 0)
-// 			{
-// 				if (stacka->index < varsa->midpoint)
-// 				{
-// 					stacka->chunk = varsa->chunks;
-// 					ft_pushb(&stacka, &stackb);
-// 					varsa->pushtotal--;
-// 				}
-// 				else
-// 					ft_rota(&stacka);
-// 			}
-// 		}
-// 	}
-// }
-
-
-
-int main(int argc, char **argv)
-{
-
-	
-	t_stack	*stacka;
-	t_stack	*stackb;
-	t_var	*varsa;
-	t_var	*varsb;
-
-	varsa = ft_initvars();
-	varsb = ft_initvars();
-	stacka = ft_input(argc, argv);
-	stackb = NULL;
-	ft_push_swap(&stacka, &stackb, varsa, varsb);
-	return (0);
 }
