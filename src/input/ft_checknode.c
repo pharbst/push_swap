@@ -6,11 +6,11 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:29:46 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/09 14:31:14 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/08/22 12:12:35 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../pushswap.h"
+#include "../../push_swap.h"
 
 int	ft_checknode(t_stack *stack, t_stack *node)
 {

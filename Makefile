@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 09:33:42 by peter             #+#    #+#              #
-#    Updated: 2022/08/22 11:34:07 by pharbst          ###   ########.fr        #
+#    Updated: 2022/08/22 12:36:10 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ FILES	=	ft_checknode.c\
 			ft_push_swap.c\
 			ft_pushchunk.c\
 			ft_sorta.c\
+			ft_sortthree.c\
 			test.c
 
 OBJS	=	$(addprefix $(OBJDIR)/, $(FILES:.c=.o))
@@ -61,7 +62,7 @@ $(NAME):	$(OBJS)
 	@cp libft/libft.a $(NAME)
 	@ar rcs $(NAME) $(OBJS)
 
-$(OBJDIR)/%.o:	$(SRCDIR)/*/%.c ./pushswap.h
+$(OBJDIR)/%.o:	$(SRCDIR)/*/%.c ./push_swap.h
 	@mkdir -p $(OBJDIR)
 	@$(CC) $(CFLAGS) -o $@ -c $<
 

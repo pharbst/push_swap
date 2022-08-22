@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_checksorted.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: peter <peter@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:35:29 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/17 15:44:57 by peter            ###   ########.fr       */
+/*   Updated: 2022/08/22 12:12:35 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../pushswap.h"
+#include "../../push_swap.h"
 
 int	ft_checksorted(t_stack *stack)
 {

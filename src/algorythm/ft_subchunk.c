@@ -6,11 +6,11 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 15:10:28 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/21 17:53:19 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/08/22 12:12:35 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../pushswap.h"
+#include "../../push_swap.h"
 
 void	ft_subchunk_a(t_stack **stacka, t_stack **stackb, t_var *varsa,
 		t_var *varsb)

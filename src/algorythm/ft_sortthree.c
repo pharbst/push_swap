@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swapboth.c                                      :+:      :+:    :+:   */
+/*   ft_sortthree.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/09 14:59:52 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/22 12:12:35 by pharbst          ###   ########.fr       */
+/*   Created: 2022/08/22 12:21:13 by pharbst           #+#    #+#             */
+/*   Updated: 2022/08/22 12:34:01 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-int	ft_swapboth(t_stack **stacka, t_stack **stackb)
+void	ft_sortthree(t_stack **stacka)
 {
-	if (ft_swap(stacka) == 1)
-		return (1);
-	if (ft_swap(stackb) == 1)
-		return (1);
-	printf("ss\n");
-	return (0);
+	if ((*stacka)->index > (*stacka)->next->index
+		&& (*stacka)->index > (*stacka)->next->next->index)
+		ft_rota(&(*stacka));
+	if ((*stacka)->index < (*stacka)->next->index
+		&& (*stacka)->next->index > (*stacka)->next->next->index)
+		ft_revrota(&(*stacka));
+	if ((*stacka)->index > (*stacka)->next->index)
+		ft_swapa(&(*stacka));
 }

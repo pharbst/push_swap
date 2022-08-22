@@ -6,11 +6,11 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:23:15 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/21 17:23:30 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/08/22 12:12:35 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../pushswap.h"
+#include "../../push_swap.h"
 
 void ft_printstack(t_stack *stack)
 {

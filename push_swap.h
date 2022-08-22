@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.h                                         :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:24:40 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/22 11:34:23 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/08/22 12:40:57 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP
-# define PUSH_SWAP
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include "./libft/libft.h"
 # include <unistd.h>
@@ -34,11 +34,11 @@ typedef struct s_variables
 	int				chunks;
 	int				chunkmembers;
 	float			midpoint;
-} t_var;
+}	t_var;
 
 //Input functions
 
-int 	ft_inputcheck(char *format);
+int		ft_inputcheck(char *format);
 int		ft_checknode(t_stack *stack, t_stack *node);
 char	*ft_inputtostr(int argc, char **argv);
 void	ft_getindex(t_stack **stack);
@@ -71,17 +71,22 @@ void	ft_locate_chunk(t_stack *stack, t_var **vars);
 float	ft_chunk_midpoint(t_stack *stack);
 int		ft_chunkmembers(t_stack *stack);
 
-void 	ft_printstack(t_stack *stack);
-t_stack	*ft_stackcreate_basic();
+void	ft_printstack(t_stack *stack);
+t_stack	*ft_stackcreate_basic(void);
 void	ft_printvars(t_var *varsa);
-void	ft_printall(t_stack *stacka, t_stack *stackb, t_var *varsa, t_var *varsb);
+void	ft_printall(t_stack *stacka, t_stack *stackb, t_var *varsa,
+			t_var *varsb);
 
 //algorythm
 
-void	ft_push_swap(t_stack **stacka, t_stack **stackb, t_var *varsa, t_var *varsb);
-void	ft_subchunk_a(t_stack **stacka, t_stack **stackb, t_var *varsa, t_var *varsb);
-void	ft_subchunk_b(t_stack **stacka, t_stack **stackb, t_var *varsa, t_var *varsb);
+void	ft_push_swap(t_stack **stacka, t_stack **stackb, t_var *varsa,
+			t_var *varsb);
+void	ft_subchunk_a(t_stack **stacka, t_stack **stackb, t_var *varsa,
+			t_var *varsb);
+void	ft_subchunk_b(t_stack **stacka, t_stack **stackb, t_var *varsa,
+			t_var *varsb);
 void	ft_pushchunk(t_stack **stacka, t_stack **stackb, t_var *varsb);
 void	ft_sorta(t_stack **stacka, t_var *varsa);
+void	ft_sortthree(t_stack **stacka);
 
 #endif

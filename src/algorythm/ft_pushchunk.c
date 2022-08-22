@@ -6,13 +6,13 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:45:57 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/22 11:45:46 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/08/22 12:18:29 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../pushswap.h"
+#include "../../push_swap.h"
 
-void ft_pushchunk(t_stack **stacka, t_stack **stackb, t_var *varsb)
+void	ft_pushchunk(t_stack **stacka, t_stack **stackb, t_var *varsb)
 {
 	if (varsb->chunkmembers == 1)
 		ft_pusha(stacka, stackb);

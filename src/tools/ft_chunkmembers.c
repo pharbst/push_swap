@@ -6,16 +6,16 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 14:29:33 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/10 14:33:05 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/08/22 12:27:45 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../pushswap.h"
+#include "../../push_swap.h"
 
 int	ft_chunkmembers(t_stack *stack)
 {
-	int	chunkid;
-	int	chunkmembers;
+	int		chunkid;
+	int		chunkmembers;
 	t_stack	*node;
 
 	node = stack;

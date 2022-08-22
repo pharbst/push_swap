@@ -6,11 +6,11 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 15:02:03 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/10 16:07:53 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/08/22 12:12:35 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../pushswap.h"
+#include "../../push_swap.h"
 
 int	ft_rotb(t_stack **stackb)
 {
