@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 09:33:42 by peter             #+#    #+#              #
-#    Updated: 2022/08/22 12:36:10 by pharbst          ###   ########.fr        #
+#    Updated: 2022/08/23 16:28:43 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ FILES	=	ft_checknode.c\
 			ft_pushchunk.c\
 			ft_sorta.c\
 			ft_sortthree.c\
-			test.c
+#			test.c
 
 OBJS	=	$(addprefix $(OBJDIR)/, $(FILES:.c=.o))
 
@@ -58,6 +58,7 @@ OBJS	=	$(addprefix $(OBJDIR)/, $(FILES:.c=.o))
 all:	$(NAME)
 
 $(NAME):	$(OBJS)
+	@Make -C ./libft
 	@echo make pushswap
 	@cp libft/libft.a $(NAME)
 	@ar rcs $(NAME) $(OBJS)
@@ -68,11 +69,13 @@ $(OBJDIR)/%.o:	$(SRCDIR)/*/%.c ./push_swap.h
 
 clean:
 	@echo make clean pushswap
+	@Make clean -C ./libft
 	@rm -rf $(OBJS)
 	rm -rf $(OBJDIR)
 
 fclean:
 	@echo make flcean pushswap
+	@make fclean -C ./libft
 	@rm -rf $(OBJS)
 	rm -rf $(OBJDIR)
 	rm -rf $(NAME)

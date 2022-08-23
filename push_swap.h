@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:24:40 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/22 12:40:57 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/08/23 16:28:59 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,11 @@ void	ft_locate_chunk(t_stack *stack, t_var **vars);
 float	ft_chunk_midpoint(t_stack *stack);
 int		ft_chunkmembers(t_stack *stack);
 
-void	ft_printstack(t_stack *stack);
-t_stack	*ft_stackcreate_basic(void);
-void	ft_printvars(t_var *varsa);
-void	ft_printall(t_stack *stacka, t_stack *stackb, t_var *varsa,
-			t_var *varsb);
+// void	ft_printstack(t_stack *stack);
+// t_stack	*ft_stackcreate_basic(void);
+// void	ft_printvars(t_var *varsa);
+// void	ft_printall(t_stack *stacka, t_stack *stackb, t_var *varsa,
+// 			t_var *varsb);
 
 //algorythm
 

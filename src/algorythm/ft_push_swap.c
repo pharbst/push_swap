@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:16:06 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/22 12:32:29 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/08/23 16:21:23 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	ft_push_swap(t_stack **stacka, t_stack **stackb, t_var *varsa,
 	{
 		ft_locate_chunk((*stacka), &varsa);
 		ft_locate_chunk((*stackb), &varsb);
-		ft_printall((*stacka), (*stackb), varsa, varsb);
 		if (ft_checksorted((*stacka)) == 1)
 		{
 			if (varsa->chunkmembers == 3 && varsa->chunkid == 0)
@@ -37,7 +36,6 @@ void	ft_push_swap(t_stack **stacka, t_stack **stackb, t_var *varsa,
 				ft_subchunk_b(stacka, stackb, varsa, varsb);
 		}
 	}
-	ft_printall((*stacka), (*stackb), varsa, varsb);
 	ft_stackdelete((*stacka));
 	ft_stackdelete((*stackb));
 }
