@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 09:33:42 by peter             #+#    #+#              #
-#    Updated: 2022/08/25 02:00:32 by pharbst          ###   ########.fr        #
+#    Updated: 2022/08/25 11:10:31 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,6 +62,7 @@ $(NAME):	$(OBJS)
 	@echo make pushswap
 	@cp libft/libft.a $(NAME)
 	@ar rcs $(NAME) $(OBJS)
+#	gcc -g main.c push_swap.a > push_swap
 
 $(OBJDIR)/%.o:	$(SRCDIR)/*/%.c ./push_swap.h
 	@mkdir -p $(OBJDIR)
