@@ -4,3 +4,9 @@ a.out
 pushswap.a
 .test.c
 output.txt
+*.a
+pain.sh
+._checker_Mac
+._checker_linux
+checker_Mac
+checker_linux

@@ -6,11 +6,11 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 09:33:42 by peter             #+#    #+#              #
-#    Updated: 2022/08/23 16:28:43 by pharbst          ###   ########.fr        #
+#    Updated: 2022/08/25 02:00:32 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	pushswap.a
+NAME	=	push_swap.a
 CC		=	cc
 CFLAGS	=	-Wall -Wextra -Werror -g
 
@@ -58,7 +58,7 @@ OBJS	=	$(addprefix $(OBJDIR)/, $(FILES:.c=.o))
 all:	$(NAME)
 
 $(NAME):	$(OBJS)
-	@Make -C ./libft
+	@make -C ./libft
 	@echo make pushswap
 	@cp libft/libft.a $(NAME)
 	@ar rcs $(NAME) $(OBJS)
@@ -69,7 +69,7 @@ $(OBJDIR)/%.o:	$(SRCDIR)/*/%.c ./push_swap.h
 
 clean:
 	@echo make clean pushswap
-	@Make clean -C ./libft
+	@make clean -C ./libft
 	@rm -rf $(OBJS)
 	rm -rf $(OBJDIR)
 
