@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 09:33:42 by peter             #+#    #+#              #
-#    Updated: 2022/08/26 19:14:33 by pharbst          ###   ########.fr        #
+#    Updated: 2022/08/27 02:25:55 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,8 @@ FILES	=	ft_checknode.c\
 			ft_locate_chunkb.c\
 			ft_chunkmembers.c\
 			ft_chunk_midpoint.c\
-			ft_subchunk.c\
+			ft_subchunka.c\
+			ft_subchunkb.c\
 			ft_push_swap.c\
 			ft_pushchunk.c\
 			ft_sorta.c\
@@ -75,8 +76,8 @@ clean:
 	rm -rf $(OBJDIR)
 
 fclean:
-	@echo make flcean pushswap
 	@make fclean -C ./libft
+	@echo make flcean pushswap
 	@rm -rf $(OBJS)
 	rm -rf $(OBJDIR)
 	rm -rf $(NAME)
