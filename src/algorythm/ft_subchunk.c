@@ -6,47 +6,168 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 15:10:28 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/23 15:25:31 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/08/27 01:15:08 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	ft_subchunk_a(t_stack **stacka, t_stack **stackb, t_var *varsa,
-		t_var *varsb)
+// void	ft_subchunk_a(t_stack **stacka, t_stack **stackb, t_var *varsa,
+// 		t_var *varsb)
+// {
+// 	varsa->chunks++;
+// 	varsb->chunks = varsa->chunks;
+// 	while (varsa->pushtotal != 0)
+// 	{
+// 		if ((*stacka)->index < varsa->midpoint)
+// 		{
+// 			(*stacka)->chunk = varsa->chunks;
+// 			ft_pushb(stacka, stackb);
+// 			varsa->pushtotal--;
+// 		}
+// 		else
+// 			ft_rota(stacka);
+// 	}
+// 	if ((*stacka)->chunk != varsa->chunkid)
+// 		ft_revrota(stacka);
+// }
+
+// void	ft_subchunk_b(t_stack **stacka, t_stack **stackb, t_var *varsa,
+// 		t_var *varsb)
+// {
+// 	varsb->chunks++;
+// 	varsa->chunks = varsb->chunks;
+// 	while (varsb->pushtotal != 0)
+// 	{
+// 		if ((*stackb)->index > varsb->midpoint)
+// 		{
+// 			(*stackb)->chunk = varsb->chunks;
+// 			ft_pusha(stacka, stackb);
+// 			varsb->pushtotal--;
+// 		}
+// 		else
+// 			ft_rotb(stackb);
+// 	}
+// 	if ((*stackb)->chunk != varsb->chunkid)
+// 		ft_revrotb(stackb);
+// }
+
+
+
+
+
+static void	ft_rotnpusha(t_stack **stacka, t_stack **stackb, t_var *varsa)
+{
+	while (varsa->pushtop != 0)
+	{
+		if ((*stacka)->index < varsa->midpoint)
+		{
+			varsa->pushtop--;
+			varsa->pushtotal--;
+			(*stacka)->chunk = varsa->chunks;
+			ft_pushb(stacka, stackb);
+		}
+		else
+			ft_rota(stacka);
+	}
+}
+
+void	ft_subchunk_a(t_stack **stacka, t_stack **stackb, t_var *varsa, t_var *varsb)
 {
 	varsa->chunks++;
 	varsb->chunks = varsa->chunks;
 	while (varsa->pushtotal != 0)
 	{
-		if ((*stacka)->index < varsa->midpoint)
+		if ((varsa->revrot - varsa->pushbot) < varsa->rot)
 		{
-			(*stacka)->chunk = varsa->chunks;
-			ft_pushb(stacka, stackb);
-			varsa->pushtotal--;
+			while (varsa->pushbot)
+			{
+				ft_revrota(stacka);
+				if ((*stacka)->index < varsa->midpoint)
+				{
+					varsa->pushbot--;
+					varsa->pushtotal--;
+					(*stacka)->chunk = varsa->chunks;
+					ft_pushb(stacka, stackb);
+				}
+			}
+			ft_rotnpusha(stacka, stackb, varsa);
 		}
 		else
-			ft_rota(stacka);
+		{
+			ft_rotnpusha(stacka, stackb, varsa);
+			while (varsa->pushbot)
+			{
+				ft_revrota(stacka);
+				if ((*stacka)->index < varsa->midpoint)
+				{
+					varsa->pushbot--;
+					varsa->pushtotal--;
+					(*stacka)->chunk = varsa->chunks;
+					ft_pushb(stacka, stackb);
+				}
+				varsa->revrot--;
+			}
+			ft_rotnpusha(stacka, stackb, varsa);
+		}
 	}
 	if ((*stacka)->chunk != varsa->chunkid)
 		ft_revrota(stacka);
 }
 
-void	ft_subchunk_b(t_stack **stacka, t_stack **stackb, t_var *varsa,
-		t_var *varsb)
+static void	ft_rotnpushb(t_stack **stacka, t_stack **stackb, t_var *varsb)
+{
+	while (varsb->pushtop != 0)
+	{
+		if ((*stackb)->index > varsb->midpoint)
+		{
+			varsb->pushtop--;
+			varsb->pushtotal--;
+			(*stackb)->chunk = varsb->chunks;
+			ft_pusha(stacka, stackb);
+		}
+		else
+			ft_rotb(stackb);
+	}
+}
+
+void	ft_subchunk_b(t_stack **stacka, t_stack **stackb, t_var *varsa, t_var *varsb)
 {
 	varsb->chunks++;
 	varsa->chunks = varsb->chunks;
 	while (varsb->pushtotal != 0)
 	{
-		if ((*stackb)->index > varsb->midpoint)
+		if ((varsb->revrot - varsb->pushbot) < varsb->rot)
 		{
-			(*stackb)->chunk = varsb->chunks;
-			ft_pusha(stacka, stackb);
-			varsb->pushtotal--;
+			while (varsb->pushbot)
+			{
+				ft_revrotb(stackb);
+				if ((*stackb)->index > varsb->midpoint)
+				{
+					varsb->pushbot--;
+					varsb->pushtotal--;
+					(*stackb)->chunk = varsb->chunks;
+					ft_pusha(stacka, stackb);
+				}
+			}
+			ft_rotnpushb(stacka, stackb, varsb);
 		}
 		else
-			ft_rotb(stackb);
+		{
+			ft_rotnpushb(stacka, stackb, varsb);
+			while (varsb->pushbot != 0)
+			{
+				ft_revrotb(stackb);
+				if ((*stackb)->index > varsb->midpoint)
+				{
+					varsb->pushbot--;
+					varsb->pushtotal--;
+					(*stackb)->chunk = varsb->chunks;
+					ft_pusha(stacka, stackb);
+				}
+			}
+			ft_rotnpushb(stacka, stackb, varsb);
+		}
 	}
 	if ((*stackb)->chunk != varsb->chunkid)
 		ft_revrotb(stackb);

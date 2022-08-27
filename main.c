@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 11:14:54 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/23 17:07:00 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/08/27 01:41:28 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ int	main(int argc, char **argv)
 	t_var	*varsa;
 	t_var	*varsb;
 
+	if (argc < 4)
+		return (0);
 	varsa = ft_initvars();
 	varsb = ft_initvars();
 	stacka = ft_input(argc, argv);
 	if (!stacka)
-	{
-		write(2, "ERROR!", 6);
-	}
+		return (0);
 	stackb = NULL;
 	ft_push_swap(&stacka, &stackb, varsa, varsb);
-	return (0);
+	return (free(varsa), free(varsb), 0);
 }
