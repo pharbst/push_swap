@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:24:40 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/26 17:55:40 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/08/28 17:03:20 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,14 @@ unsigned int		ft_chunkmembers(t_stack *stack, t_var *vars);
 void				ft_locate_chunka(t_stack *stacka, t_var *varsa);
 void				ft_locate_chunkb(t_stack *stackb, t_var *varsb);
 
-//debug prints
+// //debug prints
 
-void				ft_printstack(t_stack *stack);
-t_stack				*ft_stackcreate_basic(void);
-void				ft_printvars(t_var *varsa);
-void				ft_printall(t_stack *stacka, t_stack *stackb, t_var *varsa,
-						t_var *varsb);
-void				ft_printstacks(t_stack *stacka, t_stack *stackb);
+// void				ft_printstack(t_stack *stack);
+// t_stack				*ft_stackcreate_basic(void);
+// void				ft_printvars(t_var *varsa);
+// void				ft_printall(t_stack *stacka, t_stack *stackb, t_var *varsa,
+// 						t_var *varsb);
+// void				ft_printstacks(t_stack *stacka, t_stack *stackb);
 
 //algorythm
 
