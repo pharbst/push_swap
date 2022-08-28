@@ -6,11 +6,11 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 09:33:42 by peter             #+#    #+#              #
-#    Updated: 2022/08/27 02:25:55 by pharbst          ###   ########.fr        #
+#    Updated: 2022/08/28 16:58:57 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	push_swap.a
+NAME	=	push_swap
 CC		=	cc
 CFLAGS	=	-Wall -Wextra -Werror -g
 
@@ -51,6 +51,7 @@ FILES	=	ft_checknode.c\
 			ft_pushchunk.c\
 			ft_sorta.c\
 			ft_sortthree.c\
+			main.c\
 			test.c
 
 OBJS	=	$(addprefix $(OBJDIR)/, $(FILES:.c=.o))
@@ -62,8 +63,8 @@ all:	$(NAME)
 $(NAME):	$(OBJS)
 	@make -C ./libft
 	@echo make pushswap
-	@cp libft/libft.a $(NAME)
-	@ar rcs $(NAME) $(OBJS)
+#	@cp libft/libft.a $(NAME)
+	$(CC) $(CFLAGS) -o $(NAME) -Llibft -lft $(OBJS)
 #	gcc -g main.c push_swap.a > push_swap
 
 $(OBJDIR)/%.o:	$(SRCDIR)/*/%.c ./push_swap.h
