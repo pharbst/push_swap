@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:55:41 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/23 14:49:35 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/08/28 17:09:05 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ int	ft_pusha(t_stack **stacka, t_stack **stackb)
 		return (1);
 	node = ft_stackremove_node(stackb, 0);
 	*stacka = ft_stackadd_front(*stacka, node);
-	printf("pa\n");
+	ft_putstr_fd("pa\n", 1);
 	return (0);
 }

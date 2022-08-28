@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 15:02:03 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/23 14:49:35 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/08/28 17:10:15 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ int	ft_rotb(t_stack **stackb)
 {
 	if (ft_rotate(stackb) == 1)
 		return (1);
-	printf("rb\n");
+	ft_putstr_fd("rb\n", 1);
 	return (0);
 }

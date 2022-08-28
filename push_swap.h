@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:24:40 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/28 17:03:20 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/08/28 17:07:48 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdint.h>
 # include <stdarg.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include <limits.h>
 
 typedef struct s_variables
