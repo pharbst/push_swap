@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 11:14:54 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/28 17:13:16 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/08/29 20:57:37 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 	varsb = ft_initvars();
 	stacka = ft_input(argc, argv);
 	if (!stacka)
-		return (0);
+		return (free(varsa), free(varsb), 0);
 	stackb = NULL;
 	ft_push_swap(&stacka, &stackb, varsa, varsb);
 	return (free(varsa), free(varsb), 0);

@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 09:33:42 by peter             #+#    #+#              #
-#    Updated: 2022/08/28 17:04:17 by pharbst          ###   ########.fr        #
+#    Updated: 2022/08/28 20:59:14 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,8 +56,8 @@ FILES	=	ft_checknode.c\
 OBJS	=	$(addprefix $(OBJDIR)/, $(FILES:.c=.o))
 
 
-
 all:	$(NAME)
+
 
 $(NAME):	$(OBJS)
 	@make -C ./libft
