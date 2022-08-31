@@ -6,17 +6,23 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 09:33:42 by peter             #+#    #+#              #
-#    Updated: 2022/08/28 20:59:14 by pharbst          ###   ########.fr        #
+#    Updated: 2022/08/31 05:56:03 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	push_swap
+
+BNAME	=	checker_mac
+
 CC		=	cc
+
 CFLAGS	=	-Wall -Wextra -Werror -g
 
 SRCDIR	=	./src
 
 OBJDIR	=	./obj
+
+BOBJDIR	=	./bobj
 
 FILES	=	ft_checknode.c\
 			ft_getindex.c\
@@ -53,36 +59,116 @@ FILES	=	ft_checknode.c\
 			ft_sortthree.c\
 			main.c
 
+BFILES	=	ft_checknode.c\
+			ft_getindex.c\
+			ft_getnode.c\
+			ft_input.c\
+			ft_inputcheck.c\
+			ft_inputsplit.c\
+			ft_inputtostr.c\
+			ft_pusha.c\
+			ft_pushb.c\
+			ft_revrotate.c\
+			ft_revrota.c\
+			ft_revrotb.c\
+			ft_revrotboth.c\
+			ft_rotate.c\
+			ft_rota.c\
+			ft_rotb.c\
+			ft_rotboth.c\
+			ft_swap.c\
+			ft_swapa.c\
+			ft_swapb.c\
+			ft_swapboth.c\
+			ft_checksorted.c\
+			get_next_line_bonus.c\
+			get_next_line_utils_bonus.c\
+			checker_main.c
+
+Black			=	\033[0;30m
+FBlack			=	\033[1;30m
+Red				=	\033[0;31m
+FRed			=	\033[1;31m
+Green			=	\033[0;32m
+FGreen			=	\033[1;32m
+Brown/Orange	=	\033[0;33m
+FBrown/Orange	=	\033[1;33m
+FYellow			=	\033[1;33m
+Yellow			=	\033[0;33m
+Blue			=	\033[0;34m
+FBlue			=	\033[1;34m
+Purple			=	\033[0;35m
+FPurple			=	\033[1;35m
+Cyan			=	\033[0;36m
+FCyan			=	\033[1;36m
+FWhite			=	\033[1;37m
+White			=	\033[0;37m
+NC				=	\033[0m
+
 OBJS	=	$(addprefix $(OBJDIR)/, $(FILES:.c=.o))
 
+BOBJS	=	$(addprefix $(BOBJDIR)/, $(BFILES:.c=.o))
 
-all:	$(NAME)
+all:	start $(NAME) end
 
+bonus:	bstart $(BNAME) bend
 
-$(NAME):	$(OBJS)
+start:
+	@echo "$(FYellow)make push_swap...$(NC)"
+
+bstart:
+	@echo "$(FYellow)make checker...$(NC)"
+
+end:
+	@echo "$(FGreen)push_swap done$(NC)"
+
+bend:
+	@echo "$(Green)checker done$(NC)"
+
+$(NAME):	OSTART $(OBJS) OEND
+	@echo "$(FWhite)dependencie libft needed$(NC)"
 	@make -C ./libft
-	@echo make pushswap...
 #	@cp libft/libft.a $(NAME)
 	@$(CC) $(CFLAGS) -o $(NAME) -Llibft -lft $(OBJS)
-	@echo done
-#	gcc -g main.c push_swap.a > push_swap
+
+OSTART:
+	@echo "$(Blue)creating object files...$(NC)"
+
+OEND:
+	@echo "$(Green)object files created$(NC)"
+
+$(BNAME):	OSTART $(BOBJS)
+	@make -C ./libft
+	@$(CC) $(CFLAGS) -o $(BNAME) -Llibft -lft $(BOBJS)
 
 $(OBJDIR)/%.o:	$(SRCDIR)/*/%.c ./push_swap.h
 	@mkdir -p $(OBJDIR)
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
+$(BOBJDIR)/%.o:	$(SRCDIR)/*/%.c ./checker.h
+	@mkdir -p $(BOBJDIR)
+	@$(CC) $(CFLAGS) -o $@ -c $<
+
 clean:
-	@echo make clean pushswap
 	@make clean -C ./libft
+	@echo "$(FRed)make clean pushswap$(Red)"
 	rm -rf $(OBJDIR)
+	rm -rf $(BOBJDIR)
 
 fclean:
 	@make fclean -C ./libft
-	@echo make flcean pushswap
-	@rm -rf $(OBJS)
+	@echo "$(FRed)make flcean pushswap$(Red)"
 	rm -rf $(OBJDIR)
+	rm -rf $(BOBJDIR)
 	rm -rf $(NAME)
+	rm -rf $(BNAME)
 
-re:	fclean all
+re:	rec fclean all rend
 
-.PHONY:	all clean fclean re
+rec:
+	@echo "$(FPurple)recompiling...$(NC)"
+
+rend:
+	@echo "$(FGreen)recompiled$(NC)"
+
+.PHONY:	all bonus clean fclean re
