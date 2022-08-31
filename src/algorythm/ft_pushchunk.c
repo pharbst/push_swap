@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:45:57 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/23 16:16:05 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/08/29 23:13:53 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 void	ft_pushchunk(t_stack **stacka, t_stack **stackb, t_var *varsb)
 {
 	if (varsb->chunkmembers == 1)
-		ft_pusha(stacka, stackb);
+		ft_pusha(stacka, stackb, 'p');
 	if (varsb->chunkmembers == 1)
 		return ;
 	if ((*stackb)->chunk == varsb->chunkid)
-		ft_pusha(stacka, stackb);
+		ft_pusha(stacka, stackb, 'p');
 	if ((*stackb)->chunk == varsb->chunkid)
-		ft_pusha(stacka, stackb);
+		ft_pusha(stacka, stackb, 'p');
 	else
 	{
-		ft_revrotb(stackb);
-		ft_pusha(stacka, stackb);
+		ft_revrotb(stackb, 'p');
+		ft_pusha(stacka, stackb, 'p');
 	}
 }

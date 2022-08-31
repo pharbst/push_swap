@@ -6,13 +6,13 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:23:42 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/27 01:51:40 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/08/29 22:31:07 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-t_stack	*ft_input(int argc, char **argv)
+t_stack	*ft_input(int argc, char **argv, char flag)
 {
 	char	*inputstr;
 	t_stack	*stack;
@@ -25,7 +25,7 @@ t_stack	*ft_input(int argc, char **argv)
 	stack = ft_inputsplit(inputstr);
 	if (!stack)
 		return (free(inputstr), NULL);
-	if (ft_checksorted(stack) == 0)
+	if (ft_checksorted(stack) == 0 && flag == 'p')
 		return (free(inputstr), ft_stackdelete(stack), NULL);
 	ft_getindex(&stack);
 	return (free(inputstr), stack);

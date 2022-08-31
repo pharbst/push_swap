@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 02:16:43 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/27 02:22:42 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/08/29 23:15:06 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,22 @@ static void	ft_rotnpusha(t_stack **stacka, t_stack **stackb, t_var *varsa)
 			varsa->pushtop--;
 			varsa->pushtotal--;
 			(*stacka)->chunk = varsa->chunks;
-			ft_pushb(stacka, stackb);
+			ft_pushb(stacka, stackb, 'p');
 		}
 		else
-			ft_rota(stacka);
+			ft_rota(stacka, 'p');
 	}
 }
 
 static void	ft_revnpusha(t_stack **stacka, t_stack **stackb, t_var *varsa)
 {
-	ft_revrota(stacka);
+	ft_revrota(stacka, 'p');
 	if ((*stacka)->index < varsa->midpoint)
 	{
 		varsa->pushbot--;
 		varsa->pushtotal--;
 		(*stacka)->chunk = varsa->chunks;
-		ft_pushb(stacka, stackb);
+		ft_pushb(stacka, stackb, 'p');
 	}
 }
 
@@ -62,5 +62,5 @@ void	ft_subchunk_a(t_stack **stacka, t_stack **stackb, t_var *varsa,
 		}
 	}
 	if ((*stacka)->chunk != varsa->chunkid)
-		ft_revrota(stacka);
+		ft_revrota(stacka, 'p');
 }

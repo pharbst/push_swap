@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 11:14:54 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/29 20:57:37 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/08/29 22:31:44 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 		return (0);
 	varsa = ft_initvars();
 	varsb = ft_initvars();
-	stacka = ft_input(argc, argv);
+	stacka = ft_input(argc, argv, 'p');
 	if (!stacka)
 		return (free(varsa), free(varsb), 0);
 	stackb = NULL;

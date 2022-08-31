@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 19:13:50 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/23 16:22:08 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/08/29 23:13:59 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_sorta(t_stack **stacka, t_var *varsa)
 {
 	if (ft_stacklast(*stacka)->chunk == varsa->chunkid)
-		ft_revrota(stacka);
+		ft_revrota(stacka, 'p');
 	if ((*stacka)->content > (*stacka)->next->content)
-		ft_swapa(stacka);
+		ft_swapa(stacka, 'p');
 }

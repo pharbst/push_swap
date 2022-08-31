@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 15:10:28 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/27 02:24:49 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/08/29 23:15:21 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,22 @@ static void	ft_rotnpushb(t_stack **stacka, t_stack **stackb, t_var *varsb)
 			varsb->pushtop--;
 			varsb->pushtotal--;
 			(*stackb)->chunk = varsb->chunks;
-			ft_pusha(stacka, stackb);
+			ft_pusha(stacka, stackb, 'p');
 		}
 		else
-			ft_rotb(stackb);
+			ft_rotb(stackb, 'p');
 	}
 }
 
 static void	ft_revnpushb(t_stack **stacka, t_stack **stackb, t_var *varsb)
 {
-	ft_revrotb(stackb);
+	ft_revrotb(stackb, 'p');
 	if ((*stackb)->index > varsb->midpoint)
 	{
 		varsb->pushbot--;
 		varsb->pushtotal--;
 		(*stackb)->chunk = varsb->chunks;
-		ft_pusha(stacka, stackb);
+		ft_pusha(stacka, stackb, 'p');
 	}
 }
 
@@ -62,5 +62,5 @@ void	ft_subchunk_b(t_stack **stacka, t_stack **stackb, t_var *varsa,
 		}
 	}
 	if ((*stackb)->chunk != varsb->chunkid)
-		ft_revrotb(stackb);
+		ft_revrotb(stackb, 'p');
 }

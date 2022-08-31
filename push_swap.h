@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:24:40 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/28 17:07:48 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/08/30 00:04:27 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <stdio.h>
 
 typedef struct s_variables
 {
@@ -44,31 +45,30 @@ char				*ft_inputtostr(int argc, char **argv);
 void				ft_getindex(t_stack **stack);
 t_stack				*ft_inputsplit(char *inputstr);
 t_stack				*ft_getnode(char *src);
-t_stack				*ft_input(int argc, char **argv);
+t_stack				*ft_input(int argc, char **argv, char flag);
 
 //stackoperations
 
-int					ft_pusha(t_stack **stacka, t_stack **stackb);
-int					ft_pushb(t_stack **stacka, t_stack **stackb);
-int					ft_revrota(t_stack **stacka);
+int					ft_pusha(t_stack **stacka, t_stack **stackb, char flag);
+int					ft_pushb(t_stack **stacka, t_stack **stackb, char flag);
+int					ft_revrota(t_stack **stacka, char flag);
 int					ft_revrotate(t_stack **stack);
-int					ft_revrotb(t_stack **stackb);
-int					ft_revrotboth(t_stack **stacka, t_stack **stackb);
-int					ft_rota(t_stack **stacka);
+int					ft_revrotb(t_stack **stackb, char flag);
+int					ft_revrotboth(t_stack **stacka, t_stack **stackb,
+						char flag);
+int					ft_rota(t_stack **stacka, char flag);
 int					ft_rotate(t_stack **stack);
-int					ft_rotb(t_stack **stackb);
-int					ft_rotboth(t_stack **stacka, t_stack **stackb);
+int					ft_rotb(t_stack **stackb, char flag);
+int					ft_rotboth(t_stack **stacka, t_stack **stackb, char flag);
 int					ft_swap(t_stack **stack);
-int					ft_swapa(t_stack **stacka);
-int					ft_swapb(t_stack **stackb);
-int					ft_swapboth(t_stack **stacka, t_stack **stackb);
+int					ft_swapa(t_stack **stacka, char flag);
+int					ft_swapb(t_stack **stackb, char flag);
+int					ft_swapboth(t_stack **stacka, t_stack **stackb, char flag);
 
 //tools
 
 int					ft_checksorted(t_stack *stack);
 t_var				*ft_initvars(void);
-//void				ft_locate_chunk(t_stack *stack, t_var **vars);
-//void				ft_locate_chunkb(t_stack *stack, t_var **vars);
 float				ft_chunk_midpoint(t_stack *stack, t_var *vars);
 unsigned int		ft_chunkmembers(t_stack *stack, t_var *vars);
 void				ft_locate_chunka(t_stack *stacka, t_var *varsa);

@@ -1,5 +1,6 @@
 a.out.dSYM
 /obj
+/bobj
 a.out
 pushswap.a
 .test.c
@@ -10,3 +11,6 @@ pain.sh
 ._checker_linux
 checker_Mac
 checker_linux
+push_swap
+
+pain2.sh
