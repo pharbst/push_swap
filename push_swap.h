@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:24:40 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/30 00:04:27 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/09/08 14:59:47 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,25 @@ typedef struct s_variables
 	unsigned int	chunks;
 	float			midpoint;
 }	t_var;
+
+typedef struct s_stack
+{
+	int				content;
+	unsigned int	chunk;
+	size_t			index;
+	struct s_stack	*next;
+}	t_stack;
+
+//t_stack
+void		ft_stackadd_end(t_stack *stack, t_stack *node);
+t_stack		*ft_stackadd_front(t_stack *stack, t_stack *newnode);
+void		ft_stackdelete(t_stack *stack);
+void		ft_stackdel_node(t_stack *node);
+t_stack		*ft_stacklast(t_stack *stack);
+int			ft_stacklen(t_stack *stack);
+t_stack		*ft_stack_new(int content);
+t_stack		*ft_stackremove_node(t_stack **stack, size_t index);
+t_stack		*ft_stacksearch(t_stack *stack, size_t index);
 
 //Input functions
 

@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 09:33:42 by peter             #+#    #+#              #
-#    Updated: 2022/08/31 05:56:03 by pharbst          ###   ########.fr        #
+#    Updated: 2022/09/08 15:03:45 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,16 @@ OBJDIR	=	./obj
 
 BOBJDIR	=	./bobj
 
-FILES	=	ft_checknode.c\
+FILES	=	t_stack_addend.c\
+			t_stack_addfront.c\
+			t_stack_delete.c\
+			t_stack_delnode.c\
+			t_stack_last.c\
+			t_stack_len.c\
+			t_stack_new.c\
+			t_stack_removenode.c\
+			t_stack_searchnode.c\
+			ft_checknode.c\
 			ft_getindex.c\
 			ft_getnode.c\
 			ft_input.c\
@@ -83,7 +92,7 @@ BFILES	=	ft_checknode.c\
 			ft_checksorted.c\
 			get_next_line_bonus.c\
 			get_next_line_utils_bonus.c\
-			checker_main.c
+			checker.c
 
 Black			=	\033[0;30m
 FBlack			=	\033[1;30m
