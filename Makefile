@@ -6,13 +6,13 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 09:33:42 by peter             #+#    #+#              #
-#    Updated: 2022/09/13 15:03:41 by pharbst          ###   ########.fr        #
+#    Updated: 2022/09/13 19:21:49 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	push_swap
 
-BNAME	=	checker_mac
+BNAME	=	checker
 
 CC		=	cc
 

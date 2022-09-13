@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 14:28:56 by pharbst           #+#    #+#             */
-/*   Updated: 2022/09/13 15:37:02 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/09/13 18:44:47 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int	ft_check(t_stack **stacka, t_stack **stackb, char *op)
 	return (1);
 }
 
-static void	ft_checker_mac(t_stack **stacka, t_stack **stackb)
+static int	ft_checker_mac(t_stack **stacka, t_stack **stackb)
 {
 	char	*op;
 
@@ -48,9 +48,10 @@ static void	ft_checker_mac(t_stack **stacka, t_stack **stackb)
 	while (op)
 	{
 		if (ft_check(stacka, stackb, op) == 1)
-			return ;
+			return (1);
 		op = get_next_line(0);
 	}
+	return (0);
 }
 
 int	main(int argc, char **argv)
@@ -62,7 +63,8 @@ int	main(int argc, char **argv)
 	if (!stacka)
 		return (0);
 	stackb = NULL;
-	ft_checker_mac(&stacka, &stackb);
+	if (ft_checker_mac(&stacka, &stackb) == 1)
+		return (0);
 	if (ft_checksorted(stacka) == 0)
 		ft_printf("OK\n");
 	else
