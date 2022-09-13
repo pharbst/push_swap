@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 09:33:42 by peter             #+#    #+#              #
-#    Updated: 2022/09/13 14:11:01 by pharbst          ###   ########.fr        #
+#    Updated: 2022/09/13 14:22:22 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -152,7 +152,7 @@ $(BNAME):	OSTART $(BOBJS)
 	@make -C ./libft
 	@$(CC) $(CFLAGS) -o $(BNAME) -Llibft -lft $(BOBJS)
 
-$(OBJDIR)/%.o:	$(SRCDIR)/*/%.c ./push_swap.h
+$(OBJDIR)/%.o:	$(SRCDIR)/*/%.c ./includes/push_swap.h
 	@mkdir -p $(OBJDIR)
 	@$(CC) $(CFLAGS) -o $@ -c $<
 	@echo "$(NC)$@"
