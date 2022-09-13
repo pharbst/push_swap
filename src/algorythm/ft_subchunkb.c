@@ -6,11 +6,11 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 15:10:28 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/29 23:15:21 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/09/13 13:51:26 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 
 static void	ft_rotnpushb(t_stack **stacka, t_stack **stackb, t_var *varsb)
 {

@@ -6,11 +6,11 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 15:43:28 by pharbst           #+#    #+#             */
-/*   Updated: 2022/09/08 15:06:02 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/09/13 13:49:15 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 
 t_stack	*ft_stackremove_node(t_stack **stack, size_t index)
 {

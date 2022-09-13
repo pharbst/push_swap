@@ -6,11 +6,11 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 14:29:33 by pharbst           #+#    #+#             */
-/*   Updated: 2022/08/26 18:00:43 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/09/13 13:53:27 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 
 unsigned int	ft_chunkmembers(t_stack *stack, t_var *vars)
 {
