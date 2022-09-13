@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 14:28:56 by pharbst           #+#    #+#             */
-/*   Updated: 2022/09/13 15:05:07 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/09/13 15:37:02 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,9 @@ int	main(int argc, char **argv)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
+	if (stacka)
+		ft_stackdelete(stacka);
+	if (stackb)
+		ft_stackdelete(stackb);
 	return (0);
 }
