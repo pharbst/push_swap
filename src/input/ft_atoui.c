@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftio.h"
+#include "push_swap.h"
 
 long long	ft_atoui(const char *src)
 {

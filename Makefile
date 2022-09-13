@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 09:33:42 by peter             #+#    #+#              #
-#    Updated: 2022/09/13 13:49:32 by pharbst          ###   ########.fr        #
+#    Updated: 2022/09/13 14:05:00 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ FILES	=	t_stack_addend.c\
 			ft_getindex.c\
 			ft_getnode.c\
 			ft_input.c\
+			ft_atoui.c\
 			ft_inputcheck.c\
 			ft_inputsplit.c\
 			ft_inputtostr.c\
@@ -72,6 +73,7 @@ BFILES	=	ft_checknode.c\
 			ft_getindex.c\
 			ft_getnode.c\
 			ft_input.c\
+			ft_atoui.c\
 			ft_inputcheck.c\
 			ft_inputsplit.c\
 			ft_inputtostr.c\
@@ -138,7 +140,7 @@ $(NAME):	OSTART $(OBJS) OEND
 	@echo "$(FWhite)dependencie libft needed$(NC)"
 	@make -C ./libft
 #	@cp libft/libft.a $(NAME)
-	@$(CC) $(CFLAGS) -o $(NAME) -L libft -l libftio.a $(OBJS)
+	@$(CC) $(CFLAGS) -o $(NAME) -Llibft -lftio $(OBJS)
 
 OSTART:
 	@echo "$(Blue)creating object files...$(NC)"
