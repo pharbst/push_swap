@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 09:33:42 by peter             #+#    #+#              #
-#    Updated: 2022/09/13 14:22:22 by pharbst          ###   ########.fr        #
+#    Updated: 2022/09/13 15:03:41 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,16 @@ FILES	=	t_stack_addend.c\
 			ft_sortthree.c\
 			main.c
 
-BFILES	=	ft_checknode.c\
+BFILES	=	t_stack_addend.c\
+			t_stack_addfront.c\
+			t_stack_delete.c\
+			t_stack_delnode.c\
+			t_stack_last.c\
+			t_stack_len.c\
+			t_stack_new.c\
+			t_stack_removenode.c\
+			t_stack_searchnode.c\
+			ft_checknode.c\
 			ft_getindex.c\
 			ft_getnode.c\
 			ft_input.c\
@@ -92,8 +101,6 @@ BFILES	=	ft_checknode.c\
 			ft_swapb.c\
 			ft_swapboth.c\
 			ft_checksorted.c\
-			get_next_line_bonus.c\
-			get_next_line_utils_bonus.c\
 			checker.c
 
 Black			=	\033[0;30m
@@ -148,18 +155,19 @@ OSTART:
 OEND:
 	@echo "$(Green)object files created$(NC)"
 
-$(BNAME):	OSTART $(BOBJS)
+$(BNAME):	OSTART $(BOBJS) OEND
 	@make -C ./libft
-	@$(CC) $(CFLAGS) -o $(BNAME) -Llibft -lft $(BOBJS)
+	@$(CC) $(CFLAGS) -o $(BNAME) -Llibft -lftio $(BOBJS)
 
 $(OBJDIR)/%.o:	$(SRCDIR)/*/%.c ./includes/push_swap.h
 	@mkdir -p $(OBJDIR)
 	@$(CC) $(CFLAGS) -o $@ -c $<
 	@echo "$(NC)$@"
 
-$(BOBJDIR)/%.o:	$(SRCDIR)/*/%.c ./checker.h
+$(BOBJDIR)/%.o:	$(SRCDIR)/*/%.c ./includes/checker.h
 	@mkdir -p $(BOBJDIR)
 	@$(CC) $(CFLAGS) -o $@ -c $<
+	@echo "$(NC)$@"
 
 clean:
 	@make clean -C ./libft
