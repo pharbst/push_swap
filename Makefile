@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 09:33:42 by peter             #+#    #+#              #
-#    Updated: 2022/09/13 19:21:49 by pharbst          ###   ########.fr        #
+#    Updated: 2022/09/16 15:55:11 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -147,7 +147,7 @@ $(NAME):	OSTART $(OBJS) OEND
 	@echo "$(FWhite)dependencie libft needed$(NC)"
 	@make -C ./libft
 #	@cp libft/libft.a $(NAME)
-	@$(CC) $(CFLAGS) -o $(NAME) -Llibft -lftio $(OBJS)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -Llibft -lftio
 
 OSTART:
 	@echo "$(Blue)creating object files...$(NC)"
