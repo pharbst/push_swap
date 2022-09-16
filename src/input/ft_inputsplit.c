@@ -6,11 +6,11 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:28:52 by pharbst           #+#    #+#             */
-/*   Updated: 2022/09/13 13:52:11 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/09/16 15:44:01 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <push_swap.h>
 
 t_stack	*ft_inputsplit(char *inputstr)
 {

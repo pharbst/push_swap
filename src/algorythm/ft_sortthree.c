@@ -6,11 +6,11 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:21:13 by pharbst           #+#    #+#             */
-/*   Updated: 2022/09/13 13:51:18 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/09/16 15:43:57 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <push_swap.h>
 
 void	ft_sortthree(t_stack **stacka)
 {

@@ -6,11 +6,11 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 13:33:13 by pharbst           #+#    #+#             */
-/*   Updated: 2022/09/13 13:49:07 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/09/16 15:44:12 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <push_swap.h>
 
 int	ft_stacklen(t_stack *stack)
 {

@@ -6,11 +6,11 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 15:50:56 by pharbst           #+#    #+#             */
-/*   Updated: 2022/09/13 13:52:49 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/09/16 15:44:07 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <push_swap.h>
 
 int	ft_rotate(t_stack **stack)
 {

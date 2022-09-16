@@ -6,11 +6,11 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 15:53:29 by pharbst           #+#    #+#             */
-/*   Updated: 2022/09/13 13:53:33 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/09/16 15:44:18 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <push_swap.h>
 
 static void	ft_locate_top(t_stack **stacka, t_var *varsa)
 {
