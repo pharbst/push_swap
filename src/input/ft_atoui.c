@@ -14,29 +14,17 @@
 
 long long	ft_atoui(const char *src)
 {
-	long long	i;
-	int	digit;
-	int	neg;
+	long long	ret;
+	int			digit;
 
-	while (*src == 9 || *src == 32 || *src == '\t' || *src == '\n'
-		|| *src == '\r' || *src == '\f' || *src == '\v')
-		src++;
-	neg = 0;
-	i = 0;
-	if (*src == '-')
-	{
-		neg++;
-		src++;
-	}
-	else if (*src == '+')
-		src++;
+	ret = 0;
+	if (!ft_isdigit(*src))
+		return (-1);
 	while (ft_isdigit(*src))
 	{
 		digit = *src - '0';
-		i = (10 * i) + digit;
+		ret = (10 * ret) + digit;
 		src++;
 	}
-	if (neg)
-		i *= -1;
-	return (i);
+	return (ret);
 }
