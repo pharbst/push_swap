@@ -6,11 +6,13 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 09:33:42 by peter             #+#    #+#              #
-#    Updated: 2022/09/16 15:55:11 by pharbst          ###   ########.fr        #
+#    Updated: 2022/09/16 19:31:37 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	push_swap
+
+DEPNAME	=	libftio
 
 BNAME	=	checker
 
@@ -144,30 +146,37 @@ bend:
 	@echo "$(Green)checker done$(NC)"
 
 $(NAME):	OSTART $(OBJS) OEND
-	@echo "$(FWhite)dependencie libft needed$(NC)"
+	@echo "$(FWhite)dependencie $(DEPNAME) needed$(NC)"
 	@make -C ./libft
 #	@cp libft/libft.a $(NAME)
+	@echo "$(FPurple)linking $(DEPNAME) in $(NAME)...$(NC)"
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -Llibft -lftio
 
-OSTART:
-	@echo "$(Blue)creating object files...$(NC)"
-
-OEND:
-	@echo "$(Green)object files created$(NC)"
-
-$(BNAME):	OSTART $(BOBJS) OEND
+$(BNAME):	BOSTART $(BOBJS) BOEND
 	@make -C ./libft
 	@$(CC) $(CFLAGS) -o $(BNAME) -Llibft -lftio $(BOBJS)
 
 $(OBJDIR)/%.o:	$(SRCDIR)/*/%.c ./includes/push_swap.h
 	@mkdir -p $(OBJDIR)
 	@$(CC) $(CFLAGS) -o $@ -c $<
-	@echo "$(NC)$@"
+	@printf  "$(NC)$@; "
 
 $(BOBJDIR)/%.o:	$(SRCDIR)/*/%.c ./includes/checker.h
 	@mkdir -p $(BOBJDIR)
 	@$(CC) $(CFLAGS) -o $@ -c $<
-	@echo "$(NC)$@"
+	@printf "$(NC)$@; "
+
+OSTART:
+	@echo "$(Blue)creating object files...$(NC)"
+BOSTART:
+	@echo "$(Blue)creating object files...$(NC)"
+
+OEND:
+	@echo ""
+	@echo "$(Green)object files created$(NC)"
+BOEND:
+	@echo ""
+	@echo "$(Green)object files created$(NC)"
 
 clean:
 	@make clean -C ./libft
@@ -182,6 +191,7 @@ fclean:
 	rm -rf $(BOBJDIR)
 	rm -rf $(NAME)
 	rm -rf $(BNAME)
+	@printf "$(NC)"
 
 re:	rec fclean all rend
 
@@ -191,4 +201,4 @@ rec:
 rend:
 	@echo "$(FGreen)recompiled$(NC)"
 
-.PHONY:	all bonus clean fclean re
+.PHONY:	all bonus clean fclean re OSTART OEND
