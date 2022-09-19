@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:23:42 by pharbst           #+#    #+#             */
-/*   Updated: 2022/09/16 15:44:00 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/09/19 15:18:00 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_stack	*ft_input(int argc, char **argv, char flag)
 	if (!inputstr)
 		return (NULL);
 	if (ft_inputcheck(inputstr) == 1)
-		return (free(inputstr), write(2, "ERROR!", 6), NULL);
+		return (free(inputstr), write(2, "Error\n", 6), NULL);
 	stack = ft_inputsplit(inputstr);
 	if (!stack)
 		return (free(inputstr), NULL);

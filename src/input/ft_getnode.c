@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:29:37 by pharbst           #+#    #+#             */
-/*   Updated: 2022/09/16 15:44:00 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/09/19 15:18:13 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ t_stack	*ft_getnode(char *src)
 	}
 	nbr = ft_atoui(src);
 	if (nbr == -1)
-		return (write(2, "ERROR!", 6), NULL);
+		return (write(2, "Error\n", 6), NULL);
 	if (minus % 2 == 1 && nbr <= 2147483648)
 		nbr *= -1;
 	else if (nbr > 2147483647 || nbr < -2147483648)
-		return (write(2, "ERROR!", 6), NULL);
+		return (write(2, "Error\n", 6), NULL);
 	node = ft_stack_new((int)nbr);
 	return (node);
 }

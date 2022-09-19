@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:28:52 by pharbst           #+#    #+#             */
-/*   Updated: 2022/09/16 15:44:01 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/09/19 16:00:06 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_stack	*ft_inputsplit(char *inputstr)
 			if (!stack)
 				stack = node;
 			else if (ft_checknode(stack, node) == 1)
-				return (ft_stackdelete(stack), write(2, "ERROR!", 6), NULL);
+				return (ft_stackdelete(stack), write(2, "Error\n", 6), NULL);
 			while (ft_strchr("-+0123456789", inputstr[x]))
 				x++;
 		}
