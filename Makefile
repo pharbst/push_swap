@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 09:33:42 by peter             #+#    #+#              #
-#    Updated: 2022/09/16 22:58:08 by pharbst          ###   ########.fr        #
+#    Updated: 2022/09/17 00:42:49 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ BNAME	=	checker
 
 CC		=	cc
 
-CFLAGS	=	-Wall -Wextra -Werror -g -I includes
+CFLAGS	=	-Wall -Wextra -Werror -g -I includes -I libft/includes
 
 SRCDIR	=	./src
 

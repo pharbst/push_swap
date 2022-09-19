@@ -26,5 +26,7 @@ long long	ft_atoui(const char *src)
 		ret = (10 * ret) + digit;
 		src++;
 	}
+	if (ft_strchr("+-", *src))
+		return (-1);
 	return (ret);
 }

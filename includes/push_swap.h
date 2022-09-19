@@ -6,14 +6,14 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:24:40 by pharbst           #+#    #+#             */
-/*   Updated: 2022/09/16 16:00:01 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/09/17 00:42:35 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <../libft/includes/libftio.h>
+# include <libftio.h>
 # include <unistd.h>
 # include <stdint.h>
 # include <stdarg.h>

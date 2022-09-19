@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 14:28:56 by pharbst           #+#    #+#             */
-/*   Updated: 2022/09/13 18:44:47 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/09/19 16:14:57 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	ft_check(t_stack **stacka, t_stack **stackb, char *op)
 		return (ft_pusha(stacka, stackb, 0));
 	if (ft_strncmp("pb\n", op, 3) == 0)
 		return (ft_pushb(stacka, stackb, 0));
-	write (2, "ERROR!", 6);
+	write (2, "Error\n", 6);
 	return (1);
 }
 
