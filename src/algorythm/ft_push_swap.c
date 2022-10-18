@@ -3,14 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: pharbst <pharbst@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:16:06 by pharbst           #+#    #+#             */
-/*   Updated: 2022/09/16 15:43:54 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/10/18 15:35:42 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
+
+void	ft_printstacks(t_stack *stacka, t_stack *stackb)
+{
+	t_stack	*heada;
+	t_stack	*headb;
+
+	heada = stacka;
+	headb = stackb;
+	while (stacka->next != heada)
+	{
+		printf("%ld\n", stacka->index);
+		stacka = stacka->next;
+	}
+	printf("%ld\n\n\n\n", stacka->index);
+	if (stackb)
+	{
+		while (stackb->next != headb)
+		{
+			printf("%ld\n", stackb->index);
+			stackb = stackb->next;
+		}
+		printf("%ld\n\n\n", stackb->index);
+	}
+}
 
 void	ft_push_swap(t_stack **stacka, t_stack **stackb, t_var *varsa,
 		t_var *varsb)

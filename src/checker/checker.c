@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 14:28:56 by pharbst           #+#    #+#             */
-/*   Updated: 2022/09/19 16:14:57 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/10/18 14:10:37 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,17 @@ static int	ft_checker_mac(t_stack **stacka, t_stack **stackb)
 	while (op)
 	{
 		if (ft_check(stacka, stackb, op) == 1)
-			return (1);
+			return (free(op), 1);
+		free(op);
 		op = get_next_line(0);
 	}
-	return (0);
+	return (free(op), 0);
 }
 
 int	main(int argc, char **argv)
 {
 	t_stack	*stacka;
 	t_stack	*stackb;
-
 	stacka = ft_input(argc, argv, 0);
 	if (!stacka)
 		return (0);

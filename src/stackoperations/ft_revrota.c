@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 15:01:27 by pharbst           #+#    #+#             */
-/*   Updated: 2022/09/16 15:44:05 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/10/18 14:15:52 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_revrota(t_stack **stacka, char flag)
 {
-	if (ft_revrotate(stacka) == 1)
+	if (ft_revrotate(stacka) == 1 && flag == 'p')
 		return (1);
 	if (flag == 'p')
 		ft_putstr_fd("rra\n", 1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_inputtostr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: pharbst <pharbst@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:34:09 by pharbst           #+#    #+#             */
-/*   Updated: 2022/09/16 15:44:01 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/10/18 15:35:08 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_inputtostr(int argc, char **argv)
 	x = 1;
 	while (--argc > 0)
 	{
+		if (argv[x][0] == '\0')
+			return (write(1, "Error\n", 6), NULL);
 		str = ft_strjoinfree(str, argv[x++]);
 		if (!str)
 			return (NULL);

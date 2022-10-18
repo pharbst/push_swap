@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 15:50:56 by pharbst           #+#    #+#             */
-/*   Updated: 2022/09/16 15:44:07 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/10/18 14:21:46 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	ft_rotate(t_stack **stack)
 {
 	t_stack	*node;
 
+	if (!*stack)
+		return (1);
 	if ((*stack)->next == *stack)
 		return (1);
 	node = *stack;

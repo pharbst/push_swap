@@ -6,7 +6,7 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 15:01:55 by pharbst           #+#    #+#             */
-/*   Updated: 2022/09/16 15:44:06 by pharbst          ###   ########.fr       */
+/*   Updated: 2022/10/18 14:16:11 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_revrotboth(t_stack **stacka, t_stack **stackb, char flag)
 {
-	if (ft_revrotate(stacka) == 1)
+	if (ft_revrotate(stacka) == 1 && flag == 'p')
 		return (1);
-	if (ft_revrotate(stackb) == 1)
+	if (ft_revrotate(stackb) == 1 && flag == 'p')
 		return (1);
 	if (flag == 'p')
 		ft_putstr_fd("rrr\n", 1);

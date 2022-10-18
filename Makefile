@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 09:33:42 by peter             #+#    #+#              #
-#    Updated: 2022/09/27 15:16:47 by pharbst          ###   ########.fr        #
+#    Updated: 2022/10/18 14:41:17 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ BNAME	=	checker
 
 CC		=	cc
 
-CFLAGS	=	-Wall -Wextra -Werror -g -I includes -I libft/includes
+CFLAGS	=	-Wall -Wextra -Werror -I includes -I libft/includes -g
 
 SRCDIR	=	./src
 
@@ -136,18 +136,6 @@ all:	start $(NAME) end
 
 bonus:	bstart $(BNAME) bend
 
-start:
-	@echo "$(FYellow)make push_swap...$(NC)"
-
-bstart:
-	@echo "$(FYellow)make checker...$(NC)"
-
-end:
-	@echo "$(FGreen)push_swap done$(NC)"
-
-bend:
-	@echo "$(Green)checker done$(NC)"
-
 $(NAME):	OSTART $(OBJS) OEND
 	@echo "$(FWhite)dependencie $(DEPNAME) needed$(NC)"
 	@make -C ./libft
@@ -157,7 +145,7 @@ $(NAME):	OSTART $(OBJS) OEND
 
 $(BNAME):	BOSTART $(BOBJS) BOEND
 	@make -C ./libft
-	@$(CC) $(CFLAGS) -o $(BNAME) -Llibft -lftio $(BOBJS)
+	@$(CC) $(CFLAGS) -o $(BNAME) $(BOBJS) -Llibft -lftio
 
 $(OBJDIR)/%.o:	$(SRCDIR)/*/%.c ./includes/push_swap.h
 	@mkdir -p $(OBJDIR)
@@ -169,17 +157,16 @@ $(BOBJDIR)/%.o:	$(SRCDIR)/*/%.c ./includes/checker.h
 	@$(CC) $(CFLAGS) -o $@ -c $<
 	@printf "$(NC)$@; "
 
-OSTART:
-	@echo "$(Blue)creating object files...$(NC)"
-BOSTART:
-	@echo "$(Blue)creating object files...$(NC)"
+git:	commit push
 
-OEND:
-	@echo ""
-	@echo "$(Green)object files created$(NC)"
-BOEND:
-	@echo ""
-	@echo "$(Green)object files created$(NC)"
+commit:
+	git commit -m "$(msg)"
+
+push:
+	git push -u $(branch)
+
+update:
+	git pull
 
 clean:
 	@make clean -C ./libft
@@ -198,21 +185,34 @@ fclean:
 
 re:	rec fclean all rend
 
+start:
+	@echo "$(FYellow)make push_swap...$(NC)"
+
+bstart:
+	@echo "$(FYellow)make checker...$(NC)"
+
+end:
+	@echo "$(FGreen)push_swap done$(NC)"
+
+bend:
+	@echo "$(Green)checker done$(NC)"
+
+OSTART:
+	@echo "$(Blue)creating object files...$(NC)"
+BOSTART:
+	@echo "$(Blue)creating object files...$(NC)"
+
+OEND:
+	@echo ""
+	@echo "$(Green)object files created$(NC)"
+BOEND:
+	@echo ""
+	@echo "$(Green)object files created$(NC)"
+
 rec:
 	@echo "$(FPurple)recompiling...$(NC)"
 
 rend:
 	@echo "$(FGreen)recompiled$(NC)"
 
-git:	commit push
-
-commit:
-	git commit -m "$(msg)"
-
-push:
-	git push -u $(branch)
-
-update:
-	git pull
-
-.PHONY:	all bonus clean fclean re OSTART OEND
+.PHONY:	all bonus clean fclean re 
