@@ -6,7 +6,7 @@
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/22 14:24:08 by pharbst           #+#    #+#              #
-#    Updated: 2023/08/22 16:11:01 by pharbst          ###   ########.fr        #
+#    Updated: 2023/08/22 16:20:27 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,11 @@ CFLAGS	:=	-Wextra -Wall -Werror
 
 LIBFT	:=	./libft
 HEADER	:=	./includes/push_swap.h
+ifeq ($(UNAME), Darwin)
 LIBS	:=	$(LIBFT)/libftio.a
+else
+LIBS	:=	$(LIBFT)/libftio_linux.a
+endif
 
 INC		:=	-I ./includes -I $(LIBFT)/includes
 VPATH	:=	src src/algorythm src/stackoperations src/t_stack src/checker src/input src/tools
