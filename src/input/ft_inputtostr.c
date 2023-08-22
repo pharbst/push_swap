@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_inputtostr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pharbst <pharbst@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:34:09 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/18 15:35:08 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/08/22 15:10:22 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
 char	*ft_inputtostr(int argc, char **argv)
 {

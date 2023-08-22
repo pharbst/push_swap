@@ -6,11 +6,11 @@
 /*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:59:52 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/18 14:22:32 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/08/22 15:10:22 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
 int	ft_swapboth(t_stack **stacka, t_stack **stackb, char flag)
 {

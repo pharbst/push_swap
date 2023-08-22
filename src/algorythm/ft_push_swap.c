@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pharbst <pharbst@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 17:16:06 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/18 15:35:42 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/08/22 15:10:22 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
 void	ft_printstacks(t_stack *stacka, t_stack *stackb)
 {

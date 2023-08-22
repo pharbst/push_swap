@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pushb.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pharbst <pharbst@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 14:54:56 by pharbst           #+#    #+#             */
-/*   Updated: 2022/10/18 15:27:12 by pharbst          ###   ########.fr       */
+/*   Updated: 2023/08/22 15:10:22 by pharbst          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 
 int	ft_pushb(t_stack **stacka, t_stack **stackb, char flag)
 {

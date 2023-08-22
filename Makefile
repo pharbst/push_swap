@@ -5,51 +5,41 @@
 #                                                     +:+ +:+         +:+      #
 #    By: pharbst <pharbst@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/05/06 09:33:42 by peter             #+#    #+#              #
-#    Updated: 2022/10/18 14:41:17 by pharbst          ###   ########.fr        #
+#    Created: 2023/08/22 14:24:08 by pharbst           #+#    #+#              #
+#    Updated: 2023/08/22 16:11:01 by pharbst          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# **************************************************************************** #
+# Operating System tracking
+# **************************************************************************** #
+UNAME		=	$(shell uname)
+OS			=	$(shell cat /etc/os-release | grep -e NAME | cut -d= -f2 | tr -d '"')
+OS_LIKE		=	$(shell cat /etc/os-release | grep ID_LIKE | cut -d= -f2)
 
-SHELL=	/bin/bash
 
-Black			=	$(shell echo -e "\033[0;30m")
-FBlack			=	$(shell echo -e "\033[1;30m")
-Red				=	$(shell echo -e "\033[0;31m")
-FRed			=	$(shell echo -e "\033[1;31m")
-Green			=	$(shell echo -e "\033[0;32m")
-FGreen			=	$(shell echo -e "\033[1;32m")
-Brown/Orange	=	$(shell echo -e "\033[0;33m")
-FBrown/Orange	=	$(shell echo -e "\033[1;33m")
-FYellow			=	$(shell echo -e "\033[1;33m")
-Yellow			=	$(shell echo -e "\033[0;33m")
-Blue			=	$(shell echo -e "\033[0;34m")
-FBlue			=	$(shell echo -e "\033[1;34m")
-Purple			=	$(shell echo -e "\033[0;35m")
-FPurple			=	$(shell echo -e "\033[1;35m")
-Cyan			=	$(shell echo -e "\033[0;36m")
-FCyan			=	$(shell echo -e "\033[1;36m")
-FWhite			=	$(shell echo -e "\033[1;37m")
-White			=	$(shell echo -e "\033[0;37m")
-NC				=	$(shell echo -e "\033[0m")
+include color.mk
 
-NAME	=	push_swap
+# **************************************************************************** #
+# Variables
+# **************************************************************************** #
 
-DEPNAME	=	libftio
+NAME	:=	push_swap
+BNAME	:=	checker
 
-BNAME	=	checker
+CC		:=	cc
+CFLAGS	:=	-Wextra -Wall -Werror
+# CFLAGS	:=	-Wall -Werror -Wextra -Wunreachable-code -g
+# CFLAGS	+=	-fsanitize=address
 
-CC		=	cc
+LIBFT	:=	./libft
+HEADER	:=	./includes/push_swap.h
+LIBS	:=	$(LIBFT)/libftio.a
 
-CFLAGS	=	-Wall -Wextra -Werror -I includes -I libft/includes -g
+INC		:=	-I ./includes -I $(LIBFT)/includes
+VPATH	:=	src src/algorythm src/stackoperations src/t_stack src/checker src/input src/tools
 
-SRCDIR	=	./src
-
-OBJDIR	=	./obj
-
-BOBJDIR	=	./bobj
-
-FILES	=	t_stack_addend.c\
+SRCS	:=	t_stack_addend.c\
 			t_stack_addfront.c\
 			t_stack_delete.c\
 			t_stack_delnode.c\
@@ -128,91 +118,105 @@ BFILES	=	t_stack_addend.c\
 			ft_checksorted.c\
 			checker.c
 
-OBJS	=	$(addprefix $(OBJDIR)/, $(FILES:.c=.o))
+ODIR	:=	obj
+OBJS	:=	$(SRCS:%.c=$(ODIR)/%.o)
 
-BOBJS	=	$(addprefix $(BOBJDIR)/, $(BFILES:.c=.o))
+# **************************************************************************** #
+# Compilation Rules
+# **************************************************************************** #
 
-all:	start $(NAME) end
+all:
+	@$(MAKE) -s proname_header
+	@$(MAKE) -s std_all
+	
+std_all:
+ifneq ($($(LIBFT)/Makefile), "")
+	@printf "%-67s$(RESET)" "$(Yellow)Updating $(FCyan)submodule ..."
+	@git submodule update --init >/dev/null 2>&1
+endif
+	@printf "$(FGreen)[$(TICK)]\n$(RESET)"
+	@printf "%-67s$(RESET)" "$(Yellow)Compiling $(FCyan)libft ..."
+	@./spinner.sh $(MAKE) -j -s -C $(LIBFT) >/dev/null
+	@printf "$(FGreen)[$(TICK)]\n$(RESET)"
+	@printf "%-67s$(RESET)" "$(Yellow)Compiling $(FCyan)$(NAME) ..."	
+	@./spinner.sh $(MAKE) -s $(NAME)
+	@printf "$(FGreen)[$(TICK)]\n$(RESET)"
 
-bonus:	bstart $(BNAME) bend
+bonus:
+	@$(MAKE) -s proname_header
+	@$(MAKE) -s std_bonus
 
-$(NAME):	OSTART $(OBJS) OEND
-	@echo "$(FWhite)dependencie $(DEPNAME) needed$(NC)"
-	@make -C ./libft
-#	@cp libft/libft.a $(NAME)
-	@echo "$(FPurple)linking $(DEPNAME) in $(NAME)...$(NC)"
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -Llibft -lftio
+std_bonus:
+ifneq ($($(LIBFT)/Makefile), "")
+	@printf "%-67s$(RESET)" "$(Yellow)Updating $(FCyan)submodule ..."
+	@git submodule update --init >/dev/null 2>&1
+endif
+	@printf "$(FGreen)[$(TICK)]\n$(RESET)"
+	@printf "%-67s$(RESET)" "$(Yellow)Compiling $(FCyan)libft ..."
+	@./spinner.sh $(MAKE) -j -s -C $(LIBFT) >/dev/null
+	@printf "$(FGreen)[$(TICK)]\n$(RESET)"
+	@printf "%-67s$(RESET)" "$(Yellow)Compiling $(FCyan)$(NAME) ..."	
+	@./spinner.sh $(MAKE) -s $(NAME)
+	@printf "$(FGreen)[$(TICK)]\n$(RESET)"
+	@printf "%-67s$(RESET)" "$(Yellow)Compiling $(FCyan)$(BNAME) ..."	
+	@./spinner.sh $(MAKE) -s $(BNAME)
+	@printf "$(FGreen)[$(TICK)]\n$(RESET)"
 
-$(BNAME):	BOSTART $(BOBJS) BOEND
-	@make -C ./libft
-	@$(CC) $(CFLAGS) -o $(BNAME) $(BOBJS) -Llibft -lftio
+$(NAME): $(OBJS)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBS) $(INC) -o $(NAME)
 
-$(OBJDIR)/%.o:	$(SRCDIR)/*/%.c ./includes/push_swap.h
-	@mkdir -p $(OBJDIR)
-	@$(CC) $(CFLAGS) -o $@ -c $<
-	@printf  "$(NC)$@; "
+$(BNAME): $(OBJS)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBS) $(INC) -o $(BNAME)
 
-$(BOBJDIR)/%.o:	$(SRCDIR)/*/%.c ./includes/checker.h
-	@mkdir -p $(BOBJDIR)
-	@$(CC) $(CFLAGS) -o $@ -c $<
-	@printf "$(NC)$@; "
+$(ODIR)/%.o: %.c $(HEADER) | $(ODIR)
+	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
-git:	commit push
+$(ODIR):
+	@mkdir -p $@
 
-commit:
-	git commit -m "$(msg)"
+libft:
+	@$(MAKE) -j -s -C $(LIBFT) $(MAKECMDGOALS) >/dev/null
 
-push:
-	git push -u $(branch)
+# **************************************************************************** #
+# Cleaning Rules
+# **************************************************************************** #
 
-update:
-	git pull
+clean:	libft
+	@$(MAKE) -s proname_header
+	@$(MAKE) -s std_clean
 
-clean:
-	@make clean -C ./libft
-	@echo "$(FRed)make clean pushswap$(Red)"
-	rm -rf $(OBJDIR)
-	rm -rf $(BOBJDIR)
+std_clean:
+	@printf "%-60s$(RESET)" "$(FPurple)Cleaning up ..."
+	@$(RM) -rf $(ODIR)
+	@printf "$(FGreen)$(TICKBOX)\n$(RESET)"
 
-fclean:
-	@make fclean -C ./libft
-	@echo "$(FRed)make flcean pushswap$(Red)"
-	rm -rf $(OBJDIR)
-	rm -rf $(BOBJDIR)
-	rm -rf $(NAME)
-	rm -rf $(BNAME)
-	@printf "$(NC)"
+fclean:	libft
+	@$(MAKE) -s proname_header
+	@$(MAKE) -s cleanator
 
-re:	rec fclean all rend
+cleanator:
+	@printf "%-60s$(RESET)" "$(FPurple)FCleaning up ..."
+	@$(RM) -rf $(ODIR)
+	@$(RM) -rf $(NAME)
+	@printf "$(FGreen)$(TICKBOX)\n$(RESET)"
 
-start:
-	@echo "$(FYellow)make push_swap...$(NC)"
+re:
+	@$(MAKE) -s proname_header
+	@$(MAKE) -s cleanator
+	@$(MAKE) -s std_all
 
-bstart:
-	@echo "$(FYellow)make checker...$(NC)"
+# **************************************************************************** #
+# Header Rules                                                                 #
+# **************************************************************************** #
 
-end:
-	@echo "$(FGreen)push_swap done$(NC)"
-
-bend:
-	@echo "$(Green)checker done$(NC)"
-
-OSTART:
-	@echo "$(Blue)creating object files...$(NC)"
-BOSTART:
-	@echo "$(Blue)creating object files...$(NC)"
-
-OEND:
-	@echo ""
-	@echo "$(Green)object files created$(NC)"
-BOEND:
-	@echo ""
-	@echo "$(Green)object files created$(NC)"
-
-rec:
-	@echo "$(FPurple)recompiling...$(NC)"
-
-rend:
-	@echo "$(FGreen)recompiled$(NC)"
-
-.PHONY:	all bonus clean fclean re 
+proname_header:
+	@printf "$(FCyan)╔══════════════════════════════════════════════════════╗$(RESET)\n\
+$(FCyan)║$(FPurple)  _____           _        _____                      $(FCyan)║\n\
+$(FCyan)║$(FPurple) |  __ \\         | |      / ____|                     $(FCyan)║\n\
+$(FCyan)║$(FPurple) | |__) |   _ ___| |__   | (_____      ____ _ _ __    $(FCyan)║\n\
+$(FCyan)║$(FPurple) |  ___/ | | / __| \'_ \\   \\___ \\ \\ /\\ / / _\` | \'_ \\   $(FCyan)║\n\
+$(FCyan)║$(FPurple) | |   | |_| \\__ \\ | | |  ____) \\ V  V / (_| | |_) |  $(FCyan)║\n\
+$(FCyan)║$(FPurple) |_|    \\__,_|___/_| |_| |_____/ \\_/\\_/ \\__,_| .__/   $(FCyan)║\n\
+$(FCyan)║$(FPurple)                     ______                  | |      $(FCyan)║\n\
+$(FCyan)║$(FPurple)                    |______|                 |_|      $(FCyan)║\n\
+$(FCyan)╚══════════════════════════════════════════════════════╝\n$(RESET)"
